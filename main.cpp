@@ -7,27 +7,10 @@ int main() {
     setlocale(LC_ALL, "portuguese");
     system("title Algoritmos em C++ & color 0A");
 
-    int numero;
-    float real;
-    char letra;
-    string frase;
+    int i = 0;
 
-    cout << "Digite um número inteiro: ";
-    cin >> numero;
-    cout << "Digite um número real: ";
-    cin >> real;
-    cout << "Digite uma única letra: ";
-    cin >> letra;
-    cout << "Digite uma frase: ";
-    cin.ignore();
-    getline(cin, frase);
-
-    system("cls");
-
-    cout << numero << endl;
-    cout << real << endl;
-    cout << letra << endl;
-    cout << frase << endl;
+    cout << ++i << endl;
+    cout << --i << endl;
 
     return 0;
 }
