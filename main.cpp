@@ -7,10 +7,9 @@ int main() {
     setlocale(LC_ALL, "portuguese");
     system("title Algoritmos em C++ & color 0A");
 
-    int i = 0;
+    bool chovendo = true; // Experimente trocar por false
 
-    cout << ++i << endl;
-    cout << --i << endl;
+    cout << "Posso ficar sem guarda-chuva? " << !chovendo << endl;
 
     return 0;
 }
