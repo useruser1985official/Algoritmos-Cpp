@@ -4,32 +4,29 @@
 
 using namespace std;
 
+int fatorial(int n);
+
 int main() {
     setlocale(LC_ALL, "portuguese");
     system("title Algoritmos em C++ & color 0A");
 
-    int numeros[2][5];
+    int num, fat;
 
-    // Linha 0
-    numeros[0][0] = 0;
-    numeros[0][1] = 2;
-    numeros[0][2] = 4;
-    numeros[0][3] = 6;
-    numeros[0][4] = 8;
+    cout << "Digite um número maior que 1 para ver seu fatorial: ";
+    cin >> num;
 
-    // Linha 1
-    numeros[1][0] = 1;
-    numeros[1][1] = 3;
-    numeros[1][2] = 5;
-    numeros[1][3] = 7;
-    numeros[1][4] = 9;
+    fat = fatorial(num); // Invocando a função pela primeira vez
 
-    for(int l = 0; l < 2; l++) { // Linhas
-        for(int c = 0; c < 5; c++) { // Colunas
-            cout << numeros[l][c] << " "; // Não pula linha, só dá espaço
-        }
-        cout << endl; // Pula de linha, executado após o for interno terminar o laço dele
-    }
+    cout << "Fatorial de " << num << " é: " << fat << "." << endl;
 
     return 0;
+}
+
+int fatorial(int n) {
+    if(n <= 1) { // Quando n for 1 ou menor, ele apenas retorna 1 e para de executar a função
+        return 1;
+    }
+
+    // Chamado recursivo: A função chama ela mesma:
+    return n * fatorial(n - 1);
 }
