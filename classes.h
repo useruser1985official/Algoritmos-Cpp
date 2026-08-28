@@ -5,41 +5,12 @@
 
 using namespace std;
 
-class Carro {
-    // Atributos privados (encapsulados):
-    private:
-        string cor;
-        string modelo;
-        int velocidade;
-
-    // Métodos públicos:
+class UtilMath {
     public:
-        void acelerar();
-        void frear();
+        static const double PI;
 
-        // Sobrecarga de construtores:
-
-        // Passando velocidade:
-        Carro(string cor, string modelo, int velocidade);
-
-        // Sem passar velocidade:
-        Carro(string cor, string modelo);
-
-        // Construtor vazio:
-        Carro();
-
-        // Destrutor:
-        ~Carro();
-
-        // Getters
-        string getCor();
-        string getModelo();
-        int getVelocidade();
-
-        // Setters
-        void setCor(string cor);
-        void setModelo(string modelo);
-        void setVelocidade(int velocidade);
+        static double areaQuadrado(double lado);
+        static double areaCirculo(double raio);
 };
 
 #endif // CLASSES_H_INCLUDED
