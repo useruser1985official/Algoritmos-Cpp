@@ -10,15 +10,18 @@ int main() {
     setlocale(LC_ALL, "portuguese");
     system("title Algoritmos em C++ & color 0A");
 
-    // Chamando métodos estáticos diretamente pela classe
-    double areaQ = UtilMath::areaQuadrado(5);
-    double areaC = UtilMath::areaCirculo(3);
+    // Definindo três objetos do "tipo" da "interface" e a instância com as classes implementadoras da mesma.
+    FonteEnergia *p1 = new PilhaComum();
+    FonteEnergia *p2 = new PilhaRecarregavel();
+    FonteEnergia *p3 = new BateriaLitio();
 
-    cout << "Área do quadrado: " << areaQ << endl;
-    cout << "Área do círculo: " << areaC << endl;
+    p1->fornecerEnergia(); // Método definidos na "interface", sendo executado somente o que está em cada classe implementadora.
+    p2->fornecerEnergia();
+    p3->fornecerEnergia();
 
-    // Acessando constante estática
-    cout << "Valor de PI: " << UtilMath::PI << endl;
+    p1->recarregar(); // Idem
+    p2->recarregar();
+    p3->recarregar();
 
     return 0;
 }

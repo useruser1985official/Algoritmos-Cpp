@@ -5,12 +5,30 @@
 
 using namespace std;
 
-class UtilMath {
+class FonteEnergia {
     public:
-        static const double PI;
+        virtual void fornecerEnergia() = 0;
+        virtual void recarregar() = 0;
 
-        static double areaQuadrado(double lado);
-        static double areaCirculo(double raio);
+        virtual ~FonteEnergia() = 0;
+};
+
+class PilhaComum : public FonteEnergia {
+    public:
+        void fornecerEnergia() override;
+        void recarregar() override;
+};
+
+class PilhaRecarregavel : public FonteEnergia {
+    public:
+        void fornecerEnergia() override;
+        void recarregar() override;
+};
+
+class BateriaLitio : public FonteEnergia {
+    public:
+        void fornecerEnergia() override;
+        void recarregar() override;
 };
 
 #endif // CLASSES_H_INCLUDED
