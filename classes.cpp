@@ -1,29 +1,47 @@
 #include "classes.h"
 
-FonteEnergia::~FonteEnergia() {
-
+Mouse::Mouse(string tipo, bool semFio) {
+    this->tipo = tipo;
+    this->semFio = semFio;
 }
 
-void PilhaComum::fornecerEnergia() {
-    cout << "Pilha comum: Fornecendo energia por um curto período." << endl;
+Mouse::~Mouse() {
+    cout << "Mouse Destruído: " << this->tipo << endl;
 }
 
-void PilhaComum::recarregar() {
-    cout << "Pilha comum não pode ser recarregada!" << endl;
+string Mouse::getTipo() {
+    return this->tipo;
 }
 
-void PilhaRecarregavel::fornecerEnergia() {
-    cout << "Pilha recarregável: Fornecendo energia de forma estável." << endl;
+bool Mouse::getSemFio() {
+    return this->semFio;
 }
 
-void PilhaRecarregavel::recarregar() {
-    cout << "Pilha recarregável recebendo carga!" << endl;
+Computador::Computador(string marca, int gb) {
+    this->marca = marca;
+    this->gb = gb;
+    this->ms = new Mouse("Óptico", false);
 }
 
-void BateriaLitio::fornecerEnergia() {
-    cout << "Bateria de lítio: Fornecendo energia de alta performance." << endl;
+Computador::~Computador() {
+    cout << "Computador Destruído: " << this->marca << endl;
+
+    delete this->ms;
 }
 
-void BateriaLitio::recarregar() {
-    cout << "Bateria de lítio recebendo carga!" << endl;
+void Computador::exibirInfo() {
+    cout << "Marca do computador: " << this->marca << endl;
+    cout << "Capacidade em GB: " << this->gb << endl;
+
+    if(ms != NULL) {
+        cout << "Mouse conectado: " << ms->getTipo() << endl;
+        cout << "O mouse é sem fio? " << (ms->getSemFio() ? "true" : "false") << endl;
+    }
+    else {
+        cout << "Nenhum mouse conectado!" << endl;
+    }
+}
+
+Mouse *Computador::getMs() {
+    return this->ms;
 }

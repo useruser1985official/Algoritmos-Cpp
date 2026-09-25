@@ -5,30 +5,34 @@
 
 using namespace std;
 
-class FonteEnergia {
-    public:
-        virtual void fornecerEnergia() = 0;
-        virtual void recarregar() = 0;
+class Mouse {
+    private:
+        string tipo;
+        bool semFio;
 
-        virtual ~FonteEnergia() = 0;
+    public:
+        Mouse(string tipo, bool semFio);
+        ~Mouse();
+
+        string getTipo();
+        bool getSemFio();
 };
 
-class PilhaComum : public FonteEnergia {
-    public:
-        void fornecerEnergia() override;
-        void recarregar() override;
-};
+class Computador {
+    private:
+        string marca;
+        int gb;
+        Mouse *ms; // Composição: Computador usa um mouse já criado internamente.
+        // A classe Mouse permanece inalterada. O new pode ser colocado no construtor também e é até recomendado.
 
-class PilhaRecarregavel : public FonteEnergia {
     public:
-        void fornecerEnergia() override;
-        void recarregar() override;
-};
+        Computador(string marca, int gb); // Não passa o mouse.
+        ~Computador();
 
-class BateriaLitio : public FonteEnergia {
-    public:
-        void fornecerEnergia() override;
-        void recarregar() override;
+        void exibirInfo();
+
+        // Getter com objeto composto.
+        Mouse *getMs();
 };
 
 #endif // CLASSES_H_INCLUDED

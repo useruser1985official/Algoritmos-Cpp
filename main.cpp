@@ -10,18 +10,14 @@ int main() {
     setlocale(LC_ALL, "portuguese");
     system("title Algoritmos em C++ & color 0A");
 
-    // Definindo três objetos do "tipo" da "interface" e a instância com as classes implementadoras da mesma.
-    FonteEnergia *p1 = new PilhaComum();
-    FonteEnergia *p2 = new PilhaRecarregavel();
-    FonteEnergia *p3 = new BateriaLitio();
+    // O computador já é criado com o mouse, nesse caso.
+    Computador *pc = new Computador("Dell", 1024);
 
-    p1->fornecerEnergia(); // Método definidos na "interface", sendo executado somente o que está em cada classe implementadora.
-    p2->fornecerEnergia();
-    p3->fornecerEnergia();
+    pc->exibirInfo();
 
-    p1->recarregar(); // Idem
-    p2->recarregar();
-    p3->recarregar();
+    cout << pc->getMs()->getTipo() << endl; // getMs do Computador retorna o objeto Mouse, do qual retornamos o método getTipo
+
+    delete pc;
 
     return 0;
 }
