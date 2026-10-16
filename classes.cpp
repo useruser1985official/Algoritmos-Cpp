@@ -1,47 +1,46 @@
 #include "classes.h"
 
-Mouse::Mouse(string tipo, bool semFio) {
-    this->tipo = tipo;
-    this->semFio = semFio;
+void Animal::dormir() {
+    cout << this->nome << " está dormindo..." << endl;
 }
 
-Mouse::~Mouse() {
-    cout << "Mouse Destruído: " << this->tipo << endl;
+Animal::Animal(string nome) {
+    this->nome = nome;
+    cout << "Animal criado: " << this->nome << endl; // Não é recomendado usar comandos de saída no construtor, apenas está aqui como exemplo.
 }
 
-string Mouse::getTipo() {
-    return this->tipo;
+Animal::~Animal() {
+
 }
 
-bool Mouse::getSemFio() {
-    return this->semFio;
+string Animal::getNome() {
+    return this->nome;
 }
 
-Computador::Computador(string marca, int gb) {
-    this->marca = marca;
-    this->gb = gb;
-    this->ms = new Mouse("Óptico", false);
+void Animal::setNome(string nome) {
+    this->nome = nome;
 }
 
-Computador::~Computador() {
-    cout << "Computador Destruído: " << this->marca << endl;
-
-    delete this->ms;
+void Cachorro::latir() {
+    cout << this->getNome() << " está latindo..." << endl;
 }
 
-void Computador::exibirInfo() {
-    cout << "Marca do computador: " << this->marca << endl;
-    cout << "Capacidade em GB: " << this->gb << endl;
-
-    if(ms != NULL) {
-        cout << "Mouse conectado: " << ms->getTipo() << endl;
-        cout << "O mouse é sem fio? " << (ms->getSemFio() ? "true" : "false") << endl;
-    }
-    else {
-        cout << "Nenhum mouse conectado!" << endl;
-    }
+Cachorro::Cachorro(string nome) : Animal(nome) { // Chama o construtor da classe Animal
+    cout << "Cachorro criado: " << this->getNome() << endl;
 }
 
-Mouse *Computador::getMs() {
-    return this->ms;
+Cachorro::~Cachorro() {
+
+}
+
+void Gato::miar() {
+    cout << this->getNome() << " está miando..." << endl;
+}
+
+Gato::Gato(string nome) : Animal(nome) { // Chama o construtor da classe Animal
+    cout << "Gato criado: " << this->getNome() << endl;
+}
+
+Gato::~Gato() {
+
 }

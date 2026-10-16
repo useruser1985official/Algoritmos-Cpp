@@ -5,34 +5,36 @@
 
 using namespace std;
 
-class Mouse {
-    private:
-        string tipo;
-        bool semFio;
+class Animal {
+    protected:
+        string nome;
 
     public:
-        Mouse(string tipo, bool semFio);
-        ~Mouse();
+        void dormir();
 
-        string getTipo();
-        bool getSemFio();
+        Animal(string nome);
+        virtual ~Animal();
+
+        string getNome();
+        void setNome(string nome);
 };
 
-class Computador {
-    private:
-        string marca;
-        int gb;
-        Mouse *ms; // Composição: Computador usa um mouse já criado internamente.
-        // A classe Mouse permanece inalterada. O new pode ser colocado no construtor também e é até recomendado.
-
+class Cachorro : public Animal {
     public:
-        Computador(string marca, int gb); // Não passa o mouse.
-        ~Computador();
+        // Método adicionado somente em Cachorro.
+        void latir();
 
-        void exibirInfo();
+        Cachorro(string nome);
+        ~Cachorro();
+};
 
-        // Getter com objeto composto.
-        Mouse *getMs();
+class Gato : public Animal {
+    public:
+        // Método adicionado somente em Gato.
+        void miar();
+
+        Gato(string nome);
+        ~Gato();
 };
 
 #endif // CLASSES_H_INCLUDED
