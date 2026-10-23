@@ -6,23 +6,19 @@
 
 using namespace std;
 
-// Version: 2.15 (Herança Parte 2).
+// Version: 2.16 (Polimorfismo de Sobreposição e de Inclusão).
 int main() {
     setlocale(LC_ALL, "portuguese");
     system("title Algoritmos em C++ & color 0A");
 
-    Cachorro *cao = new Cachorro("Rex");
+    Alimento *a1 = new Fruta();
+    Alimento *a2 = new Verdura();
 
-    cao->dormir(); // Herdado da classe Animal.
-    cao->latir(); // Próprio de Cachorro.
+    a1->consumir();
+    a2->consumir();
 
-    Gato *gat = new Gato("Frajola");
-
-    gat->dormir(); // Herdado
-    gat->miar(); // Próprio de Gato.
-
-    delete cao;
-    delete gat;
+    delete a1;
+    delete a2;
 
     return 0;
 }

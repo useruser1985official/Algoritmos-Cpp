@@ -5,36 +5,19 @@
 
 using namespace std;
 
-class Animal {
-    protected:
-        string nome;
-
+class Alimento {
     public:
-        void dormir();
-
-        Animal(string nome);
-        virtual ~Animal();
-
-        string getNome();
-        void setNome(string nome);
+        virtual void consumir();
 };
 
-class Cachorro : public Animal {
+class Fruta : public Alimento {
     public:
-        // Método adicionado somente em Cachorro.
-        void latir();
-
-        Cachorro(string nome);
-        ~Cachorro();
+        void consumir() override;
 };
 
-class Gato : public Animal {
+class Verdura : public Alimento {
     public:
-        // Método adicionado somente em Gato.
-        void miar();
-
-        Gato(string nome);
-        ~Gato();
+        void consumir() override;
 };
 
 #endif // CLASSES_H_INCLUDED
