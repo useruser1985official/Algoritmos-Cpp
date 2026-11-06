@@ -2,22 +2,16 @@
 #define CLASSES_H_INCLUDED
 #include <iostream>
 #include <cstddef>
+#include <cstring>
 
 using namespace std;
 
-class Alimento {
+class Microondas {
     public:
-        virtual void consumir();
-};
-
-class Fruta : public Alimento {
-    public:
-        void consumir() override;
-};
-
-class Verdura : public Alimento {
-    public:
-        void consumir() override;
+        void ligar();
+        void ligar(int minutos, int segundos);
+        void ligar(bool aquecer);
+        void ligar(const char* programa);
 };
 
 #endif // CLASSES_H_INCLUDED

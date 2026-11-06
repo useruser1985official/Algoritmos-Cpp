@@ -6,19 +6,20 @@
 
 using namespace std;
 
-// Version: 2.16 (Polimorfismo de Sobreposição e de Inclusão).
+// Version: 2.18 (Polimorfismo de Sobrecarga).
 int main() {
     setlocale(LC_ALL, "portuguese");
     system("title Algoritmos em C++ & color 0A");
 
-    Alimento *a1 = new Fruta();
-    Alimento *a2 = new Verdura();
+    Microondas *micro = new Microondas();
 
-    a1->consumir();
-    a2->consumir();
+    micro->ligar(); // Sem parâmetros.
+    micro->ligar(1, 30); // Minutos e segundos.
+    micro->ligar(true); // Comando aquecer.
+    micro->ligar("Pipoca"); // Programa Pipoca.
+    micro->ligar("Pizza"); // Programa Pizza.
 
-    delete a1;
-    delete a2;
+    delete micro;
 
     return 0;
 }
