@@ -6,20 +6,35 @@
 
 using namespace std;
 
-// Version: 2.18 (Polimorfismo de Sobrecarga).
+// Version: 2.19 (Polimorfismo Paramétrico) - Versão Final.
 int main() {
     setlocale(LC_ALL, "portuguese");
     system("title Algoritmos em C++ & color 0A");
 
-    Microondas *micro = new Microondas();
+    Caixa<string> *texto = new Caixa<string>();
 
-    micro->ligar(); // Sem parâmetros.
-    micro->ligar(1, 30); // Minutos e segundos.
-    micro->ligar(true); // Comando aquecer.
-    micro->ligar("Pipoca"); // Programa Pipoca.
-    micro->ligar("Pizza"); // Programa Pizza.
+    texto->guardar("Olá");
+    cout << texto->abrir() << endl;
 
-    delete micro;
+    Caixa<int> *numero = new Caixa<int>();
+
+    numero->guardar(42);
+    cout << numero->abrir() << endl;
+
+    Caixa<char> *letra = new Caixa<char>();
+
+    letra->guardar('A');
+    cout << letra->abrir() << endl;
+
+    Caixa<bool> *logico = new Caixa<bool>();
+
+    logico->guardar(true);
+    cout << (logico->abrir() ? "true" : "false") << endl;
+
+    delete texto;
+    delete numero;
+    delete letra;
+    delete logico;
 
     return 0;
 }

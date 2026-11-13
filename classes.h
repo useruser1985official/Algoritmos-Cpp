@@ -6,12 +6,21 @@
 
 using namespace std;
 
-class Microondas {
+template<class E> class Caixa { // O E será substituído pela classe
+    private:
+        E conteudo;
+
     public:
-        void ligar();
-        void ligar(int minutos, int segundos);
-        void ligar(bool aquecer);
-        void ligar(const char* programa);
+        void guardar(E valor);
+        E abrir();
 };
+
+template<class E> void Caixa<E>::guardar(E valor) {
+    this->conteudo = valor;
+}
+
+template<class E> E Caixa<E>::abrir() {
+    return this->conteudo;
+}
 
 #endif // CLASSES_H_INCLUDED
